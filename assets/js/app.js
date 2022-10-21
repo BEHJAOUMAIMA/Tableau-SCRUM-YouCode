@@ -1,4 +1,7 @@
-
+function BtnAddTas(){
+  document.getElementById('save').style.display = 'block';
+  document.getElementById('update').style.display = 'none';
+}
  function createTask() {
     const form = document.forms['form'];
     let add = {
@@ -20,12 +23,27 @@ function saveTask() {
 }
 
 function editTask(index) {
-  console.log(index);
+  form.title.value = tasks[index].title;
+  form.flexRadioDefault.value = tasks[index].type;  
+  form.priority.value = tasks[index].priority;
+  form.status.value = tasks[index].status;
+  form.date.value = tasks[index].date;
+  form.description.value = tasks[index].description;
+  form.id.value = index;
 
+  document.getElementById('save').style.display = 'none';
+  document.getElementById('update').style.display = 'block';
 }
 
 function updateTask() {
-    
+  let index=form.id.value
+  tasks[index].title = form.title.value;
+  tasks[index].type = form.flexRadioDefault.value;
+  tasks[index].priority = form.priority.value;
+  tasks[index].status = form.status.value;
+  tasks[index].date = form.date.value;
+  tasks[index].description = form.description.value;
+  reloadTasks();
 }
 
 function deleteTask(index) {
@@ -73,16 +91,17 @@ function reloadTasks() {
                     <div class="">
                       <div class="">#${index+1} created in ${tasks[index].date}</div>
                       <div
-                        class=""
-                        title="${tasks[index].title}"
+                        class="text-truncate"
+                        style="max-width:18rem"
+                        title="${tasks[index].description}"
                       >
-                      ${tasks[index].title}
+                      ${tasks[index].description}
                       </div>
                     </div>
                     <div class="h5">
                       <span class="btn btn-sm btn-primary p-0 px-1">High</span>
                       <span class="btn btn-sm btn-light text-black p-0 px-1">Feature</span>
-                      <span type="button" onclick="editTask(${index})" class="btn btn-warning p-0 px-1">Edit</span>
+                      <span type="button" onclick="editTask(${index})" class="btn btn-warning p-0 px-1" data-bs-toggle="modal" data-bs-target="#modal" data-bs-whatever="@fat">Edit</span>
                       <span type="button" onclick="deleteTask(${index})" class="btn btn-danger p-0 px-1">Delete</span>
 
                     </div>
