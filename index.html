@@ -39,31 +39,28 @@
         <div class="row">
           <div class="col-sm-12 col-md-6 col-lg-4 mt-3">
             <div class="card">
-              <div class="card-header bg-black">
-                <h4 class="text-light">To do (<span id="to-do-tasks-count">0</span>)</h4>
+              <div class="card-header bg-indigo-800">
+                <h4 class="text-center text-light ">To do (<span id="to-do-tasks-count">0</span>)</h4>
               </div>
               <div class="card-body p-0" id="to-do-tasks">
-                <!-- TO DO TASKS HERE -->
               </div>
             </div>
           </div>
           <div class="col-sm-12 col-md-6 col-lg-4 mt-3">
             <div class="card">
-              <div class="card-header bg-black">
-                <h4 class="text-light">Doing (<span id="doing-tasks-count">0</span>)</h4>
+              <div class="card-header bg-indigo-800">
+                <h4 class="text-center text-light">In Progress (<span id="doing-tasks-count">0</span>)</h4>
               </div>
               <div class="card-body p-0" id="doing-tasks">
-                <!-- TO DO TASKS HERE -->
               </div>
             </div>
           </div>
           <div class="col-sm-12 col-md-6 col-lg-4 mt-3">
             <div class="card">
-              <div class="card-header bg-black">
-                <h4 class="text-light">Done (<span id="done-tasks-count">0</span>)</h4>
+              <div class="card-header bg-indigo-800">
+                <h4 class="text-center text-light">Done (<span id="done-tasks-count">0</span>)</h4>
               </div>
               <div class="card-body p-0" id="done-tasks">
-                <!-- TO DO TASKS HERE -->
               </div>
             </div>
           </div>
@@ -86,10 +83,10 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form id="form">
+            <form id="form" name="form">
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label">Title:</label>
-                <input id="title" type="text" class="form-control" />
+                <input id="title" name="title" type="text" class="form-control" />
               </div>
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label">type:</label>
@@ -105,7 +102,7 @@
 
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label">Priority:</label>
-                <select id="priority" class="form-select" aria-label="Default select example">
+                <select id="priority" name="priority" class="form-select" aria-label="Default select example">
                   <option selected>please select</option>
                   <option value="Low">Low</option>
                   <option value="Medium">Medium</option>
@@ -115,27 +112,27 @@
               </div>
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label">statuT:</label>
-                <select id="statut" class="form-select" aria-label="Default select example">
+                <select id="status" name="status" class="form-select" aria-label="Default select example">
                   <option selected>please select</option>
                   <option value="To_do">To do</option>
-                  <option value="Doing">Doing</option>
+                  <option value="In_Progress">In Progress</option>
                   <option value="Done">Done</option>
                 </select>
               </div>
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label">Date:</label>
-                <input id="date" type="date" class="form-control" />
+                <input id="date" name="date" type="date" class="form-control" />
               </div>
 
               <div class="mb-3">
                 <label for="message-text" class="col-form-label">Description:</label>
-                <textarea id="description" class="form-control"></textarea>
+                <textarea id="description" name="description" class="form-control"></textarea>
               </div>
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button id="Save" type="submit" class="btn btn-primary" onclick="">Save</button>
+            <button id="save" type="submit" class="btn btn-primary" onclick="saveTask()">Save</button>
           </div>
         </div>
       </div>

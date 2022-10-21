@@ -1,37 +1,23 @@
-/**
- * In this file app.js you will find all CRUD functions name.
- * 
- */
 
-
-
-let save = document.getElementById('Save');
-function checkFB(){
-    if (Bug.checked){
-        Check = Bug;
-    }
-    if(Feature.checked){
-        Check = Feature;
-    }
-}
  function createTask() {
-    
-    
-  
-    
-      
+    const form = document.forms['form'];
+    let add = {
+      title : form.title.value,
+      type  :  form.flexRadioDefault.value,
+      priority : form.priority.value,
+      status : form.status.value,
+      date : form.date.value,
+      description :form.description.value,
     }
+  
+    tasks.push(add);
+    reloadTasks();
+      
+}
 
 
 function saveTask() {
-    // Recuperer task attributes a partir les champs input
-
-    // Créez task object
-
-    // Ajoutez object au Array
-
-    // refresh tasks
-    
+  createTask();
 }
 
 function editTask(index) {
@@ -102,9 +88,13 @@ function reloadTasks() {
         
 
         selectStatus.innerHTML += `
-        <button class="w-100 border-0 d-flex bg-white border-bottom">
+        <button class="w-100 border-0 d-flex bg-gray-200 border-bottom">
                   <div class="col-1 mt-1">
-                    <i class="bi bi-question-circle h4 text-green"></i>
+                    <i class="`
+                    +((tasks[index].status == 'To Do')?'fa fa-clock circle'
+                    :(tasks[index].status == 'In Progress') ?'fa fa-calendar'
+                    :'fa fa-check')+`
+                     h4 text-pink"></i>
                   </div>
                   <div class="text-start col-11 mt-1">
                     <div class="fw-bold">
