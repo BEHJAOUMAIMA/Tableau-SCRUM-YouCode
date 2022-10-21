@@ -9,58 +9,28 @@
       date : form.date.value,
       description :form.description.value,
     }
-  
     tasks.push(add);
-    reloadTasks();
-      
+    reloadTasks();     
 }
 
 
 function saveTask() {
   createTask();
+  document.getElementById('form').reset(); 
 }
 
 function editTask(index) {
-    // Initialisez task form
+  console.log(index);
 
-    // Affichez updates
-
-    // Delete Button
-
-    // Définir l’index en entrée cachée pour l’utiliser en Update et Delete
-
-    // Definir FORM INPUTS
-
-    // Ouvrir Modal form
 }
 
 function updateTask() {
-    // GET TASK ATTRIBUTES FROM INPUTS
-
-    // Créez task object
-
-    // Remplacer ancienne task par nouvelle task
-
-    // Fermer Modal form
-
-    // Refresh tasks
     
 }
 
-function deleteTask() {
-    // Get index of task in the array
-
-    // Remove task from array by index splice function
-
-    // close modal form
-
-    // refresh tasks
-}
-
-function initTaskForm() {
-    // Clear task form from data
-
-    // Hide all action buttons
+function deleteTask(index) {
+  tasks.splice(index,1);
+  reloadTasks();
 }
 
 function reloadTasks() {
@@ -111,14 +81,14 @@ function reloadTasks() {
                     </div>
                     <div class="h5">
                       <span class="btn btn-sm btn-primary p-0 px-1">High</span>
-                      <span class="btn btn-sm btn-light text-black p-0 px-1"
-                        >Feature</span
-                      >
+                      <span class="btn btn-sm btn-light text-black p-0 px-1">Feature</span>
+                      <span type="button" onclick="editTask(${index})" class="btn btn-warning p-0 px-1">Edit</span>
+                      <span type="button" onclick="deleteTask(${index})" class="btn btn-danger p-0 px-1">Delete</span>
+
                     </div>
                   </div>
         </button>
-        `;
-            
-        
+        `;           
     }
 }
+
