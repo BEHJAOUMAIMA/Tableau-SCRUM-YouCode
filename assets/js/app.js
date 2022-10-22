@@ -1,6 +1,8 @@
+
 function btnAddTask() {
   document.getElementById("save").style.display="block";
   document.getElementById("update").style.display="none";
+  document.getElementById("form").reset();
 }
 function createTask() {
   const form = document.forms["form"];
@@ -17,11 +19,9 @@ function createTask() {
 }
 function saveTask() {
   createTask();
-  document.getElementById("form").reset();
-  
+  clearForm();  
 }
-function editTask(index) {
-  
+function editTask(index) { 
   form.title.value = tasks[index].title;
   form.flexRadioDefault.value = tasks[index].type;
   form.priority.value = tasks[index].priority;
@@ -42,13 +42,10 @@ function updateTask() {
   tasks[index].description = form.description.value;
   reloadTasks();
 }
-
 function deleteTask(index) {
   if (confirm("Do you want to delete ?") == true) {
     tasks.splice(index, 1);
     reloadTasks();
-  } else {
-    return;
   }
 }
 function reloadTasks() {
@@ -71,11 +68,10 @@ function reloadTasks() {
       document.getElementById("done-tasks-count").innerHTML++;
     }
     selectStatus.innerHTML +=
-      `
-          <button class="w-100 border-0 d-flex bg-gray-200 border-bottom">
+      `<button class="w-100 border-0 d-flex bg-gray-200 border-bottom">
             <div class="col-1 mt-1">
               <i class="` +
-      (tasks[index].status == "To Do" ? "fa fa-clock circle" : tasks[index].status == "In Progress" ? "fa fa-calendar" : "fa fa-check") +` h4 text-pink"></i>
+      (tasks[index].status == "To Do" ? "fa fa-clock circle" : tasks[index].status == "In Progress" ? "fa fa-calendar" : "fa fa-check") +` h4 text-purple"></i>
           </div>
             <div class="text-start col-11 mt-1">
               <div class="fw-bold">
