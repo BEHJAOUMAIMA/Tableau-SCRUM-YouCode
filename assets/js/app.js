@@ -1,8 +1,10 @@
 function btnAddTask() {
-  document.getElementById("save").style.display = "block";
-  document.getElementById("update").style.display = "none";
+  document.getElementById("save").style.display="block";
+  document.getElementById("update").style.display="none";
 }
 function createTask() {
+  document.getElementById("save").style.display="block";
+  document.getElementById("update").style.display="none";
   const form = document.forms["form"];
   let add = {
     title: form.title.value,
@@ -13,13 +15,15 @@ function createTask() {
     description: form.description.value,
   };
   tasks.push(add);
-  reloadTasks();
+  reloadTasks(); 
 }
 function saveTask() {
   createTask();
   document.getElementById("form").reset();
+  
 }
 function editTask(index) {
+  
   form.title.value = tasks[index].title;
   form.flexRadioDefault.value = tasks[index].type;
   form.priority.value = tasks[index].priority;
@@ -27,8 +31,8 @@ function editTask(index) {
   form.date.value = tasks[index].date;
   form.description.value = tasks[index].description;
   form.id.value = index;
-  document.getElementById("save").style.display = "none";
-  document.getElementById("update").style.display = "block";
+  document.getElementById("save").style.display ="none";
+  document.getElementById("update").style.display ="block";
 }
 function updateTask() {
   let index = form.id.value;
@@ -85,11 +89,11 @@ function reloadTasks() {
                     ${tasks[index].description}
                   </div>
               </div>
-              <div class="h5">
-                <span class="btn btn-sm btn-primary p-0 px-1">${tasks[index].priority}</span>
-                <span class="btn btn-sm btn-light text-black p-0 px-1">${tasks[index].type}</span>
-                <span type="button" onclick="editTask(${index})" class="btn btn-warning p-0 px-1" data-bs-toggle="modal" data-bs-target="#modal" data-bs-whatever="@fat">Edit</span>
-                <span type="button" onclick="deleteTask(${index})" class="btn btn-danger p-0 px-1">Delete</span>
+              <div class="h5 d-flex m">
+                <span class="btn btn-sm btn-primary me-2  p-0 px-3">${tasks[index].priority}</span>
+                <span class="btn btn-sm btn-light text-black me-2 p-0 px-3">${tasks[index].type}</span>
+                <span type="button" onclick="editTask(${index})" class="btn btn-secondary me-2 p-0 px-3" data-bs-toggle="modal" data-bs-target="#modal" data-bs-whatever="@fat">Edit</span>
+                <span type="button" onclick="deleteTask(${index})" class="btn btn-danger me-2 p-0 px-3">Delete</span>
               </div>
           </div>
         </button>
