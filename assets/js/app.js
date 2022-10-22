@@ -3,8 +3,6 @@ function btnAddTask() {
   document.getElementById("update").style.display="none";
 }
 function createTask() {
-  document.getElementById("save").style.display="block";
-  document.getElementById("update").style.display="none";
   const form = document.forms["form"];
   let add = {
     title: form.title.value,
