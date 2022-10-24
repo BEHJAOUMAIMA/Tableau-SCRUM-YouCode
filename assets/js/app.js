@@ -67,26 +67,26 @@ function reloadTasks() {
       document.getElementById("done-tasks-count").innerHTML++;
     }
     selectStatus.innerHTML +=
-      `<button class="w-100 border-0 d-flex bg-gray-200 border-bottom">
+      `<button class="w-100 py-3 border-0 d-flex bg-gray-200 border-bottom">
             <div class="col-1 mt-1">
               <i class="` +
       (tasks[index].status == "To Do" ? "fa fa-clock circle" : tasks[index].status == "In Progress" ? "fa fa-calendar" : "fa fa-check") +` h4 text-purple"></i>
           </div>
             <div class="text-start col-11 mt-1">
-              <div class="fw-bold">
+              <div class="pb-2 fw-bold">
                 ${tasks[index].title}
               </div>
               <div class="">
-                <div class="">#${index + 1} created in ${tasks[index].date}</div>
+                <div class="pb-2">#${index + 1} created in ${tasks[index].date}</div>
                   <div class="text-truncate" style="max-width:18rem" title="${tasks[index].description}">
                     ${tasks[index].description}
                   </div>
               </div>
-              <div class="h5 d-flex m">
-                <span class="btn btn-sm btn-primary me-2  p-0 px-3">${tasks[index].priority}</span>
-                <span class="btn btn-sm btn-light text-black me-2 p-0 px-3">${tasks[index].type}</span>
-                <span type="button" onclick="editTask(${index})" class="btn btn-secondary me-2 p-0 px-3" data-bs-toggle="modal" data-bs-target="#modal" data-bs-whatever="@fat">Edit</span>
-                <span type="button" onclick="deleteTask(${index})" class="btn btn-danger me-2 p-0 px-3">Delete</span>
+              <div class="h5 d-flex pt-3">
+                <span class="btn btn-sm btn-primary me-2  p-1 px-2">${tasks[index].priority}</span>
+                <span class="btn btn-sm btn-light text-black me-2 p-1 px-2">${tasks[index].type}</span>
+                <span type="button" onclick="editTask(${index})" class="btn btn-secondary me-2 p-1 px-2" data-bs-toggle="modal" data-bs-target="#modal" data-bs-whatever="@fat">Edit</span>
+                <span type="button" onclick="deleteTask(${index})" class="btn btn-danger me-2 p-1 px-2">Delete</span>
               </div>
           </div>
         </button>
