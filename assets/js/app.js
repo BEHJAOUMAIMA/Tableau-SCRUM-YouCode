@@ -19,7 +19,6 @@ function createTask() {
 }
 function saveTask() {
   createTask();
-  clearForm();  
 }
 function editTask(index) { 
   form.title.value = tasks[index].title;
@@ -43,7 +42,7 @@ function updateTask() {
   reloadTasks();
 }
 function deleteTask(index) {
-  if (confirm("Do you want to delete ?") == true) {
+  if (confirm("Are you sure you want to delete ?") == true) {
     tasks.splice(index, 1);
     reloadTasks();
   }
